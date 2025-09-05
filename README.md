@@ -1,4 +1,7 @@
 # Test project
 
+## Project
+Future web site
+
 ## Links
-[GITHUB](https://github.com/ut0ku/Project-1)
+[GITHUB](https://ut0ku.github.io/Project-1/)
