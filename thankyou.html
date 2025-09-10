@@ -6,29 +6,76 @@
     <title>Спасибо! - Название вашего сайта</title>
     <meta name="description" content="Благодарим за ваше сообщение">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <header>
-        <a href="/">Логотип или название сайта</a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
+    <header class="site-header">
+        <a href="/" class="site-header__brand">Test site</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item">
+                    <a href="index.html" class="site-nav__link">Главная</a>
+                </li>
+                <li class="site-nav__item">
+                    <a href="about.html" class="site-nav__link">О нас</a>
+                </li>
+                <li class="site-nav__item">
+                    <a href="contacts.html" class="site-nav__link">Контакты</a>
+                </li>
             </ul>
         </nav>
     </header>
-    
-    <main>
+
+    <main class="text-center">
+        <!-- Хлебные крошки -->
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                    <a href="index.html" class="breadcrumbs__link">Главная</a>
+                </li>
+                <li class="breadcrumbs__item">
+                    <span class="breadcrumbs__current">Спасибо</span>
+                </li>
+            </ul>
+        </nav>
+
         <h1>Спасибо за ваше сообщение!</h1>
         <p>Мы получили ваше обращение и свяжемся с вами в ближайшее время.</p>
-        <p><a href="index.html">Вернуться на главную</a></p>
+
+        <!-- Responsive изображение -->
+        <img 
+            src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80"
+            srcset="
+                https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80 640w,
+                https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=960&q=80 960w,
+                https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80 1280w
+            "
+            sizes="(max-width: 700px) 92vw, (max-width: 1200px) 640px, 960px"
+            alt="Спасибо за обращение"
+            class="responsive-image"
+            loading="lazy"
+            width="640"
+            height="360">
+
+        <p class="mt-4"><a href="index.html" class="btn btn--primary">Вернуться на главную</a></p>
+
+        <!-- Видео с YouTube -->
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/7NN4RlKspW0" 
+                title="Благодарственное видео от нашей команды"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
     </main>
-    
-    <footer>
+
+    <footer class="site-footer text-center">
         <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
         <p>Телефон: +7 (123) 456-78-90</p>
     </footer>
+
+    <script src="./script.js" defer></script>
 </body>
 </html>

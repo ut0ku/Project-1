@@ -4,7 +4,21 @@ const openBtn = document.getElementById('openDialog');
 const closeBtn = document.getElementById('closeDialog');
 const form = document.getElementById('contactForm');
 const phoneInput = document.getElementById('phone');
+const modalClose = document.querySelector('.modal__close');
 let lastActive = null;
+
+// Установка активного пункта меню
+function setActiveNavItem() {
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.site-nav__link');
+    
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
+            link.classList.add('site-nav__link--active');
+        }
+    });
+}
 
 // Телефонная маска
 function applyPhoneMask(input) {
@@ -53,13 +67,18 @@ phoneInput?.addEventListener('focus', (e) => {
     }
 });
 
-openBtn.addEventListener('click', () => {
+openBtn?.addEventListener('click', () => {
     lastActive = document.activeElement;
     dlg.showModal();
     dlg.querySelector('input, select, textarea, button')?.focus();
 });
 
-closeBtn.addEventListener('click', () => {
+closeBtn?.addEventListener('click', () => {
+    dlg.close('cancel');
+    form.reset();
+});
+
+modalClose?.addEventListener('click', () => {
     dlg.close('cancel');
     form.reset();
 });
@@ -113,14 +132,32 @@ form?.addEventListener('submit', (e) => {
 });
 
 // Возвращение фокуса после модалки
-dlg.addEventListener('close', () => {
+dlg?.addEventListener('close', () => {
     lastActive?.focus();
 });
 
 // Закрытие по клику на подложку
-dlg.addEventListener('click', (e) => {
+dlg?.addEventListener('click', (e) => {
     if (e.target === dlg) {
         dlg.close('cancel');
         form.reset();
     }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    setActiveNavItem();
+    
+    // Плавная прокрутка к якорям
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 });
