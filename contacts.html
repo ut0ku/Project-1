@@ -6,39 +6,91 @@
     <title>Контакты - Название вашего сайта</title>
     <meta name="description" content="Контактная информация нашей компании">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <header>
-        <a href="/">Логотип или название сайта</a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
+    <header class="site-header">
+        <a href="/" class="site-header__brand">Test site</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item">
+                    <a href="index.html" class="site-nav__link">Главная</a>
+                </li>
+                <li class="site-nav__item">
+                    <a href="about.html" class="site-nav__link">О нас</a>
+                </li>
+                <li class="site-nav__item">
+                    <a href="contacts.html" class="site-nav__link site-nav__link--active">Контакты</a>
+                </li>
             </ul>
         </nav>
     </header>
-    
+
     <main>
+        <!-- Хлебные крошки -->
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                    <a href="index.html" class="breadcrumbs__link">Главная</a>
+                </li>
+                <li class="breadcrumbs__item">
+                    <span class="breadcrumbs__current">Контакты</span>
+                </li>
+            </ul>
+        </nav>
+
         <h1>Наши контакты</h1>
-        
-        <section>
+
+        <section class="hero mb-5">
+            <h2 class="hero__title">Свяжитесь с нами</h2>
+            <p class="hero__subtitle">Мы всегда рады помочь вам</p>
+        </section>
+
+        <section class="mb-5">
             <h2>Контактная информация</h2>
             <p>Адрес: г. Москва, ул. Пушкина, д. 1</p>
             <p>Телефон: +7 (123) 456-78-90</p>
             <p>Email: info@example.com</p>
         </section>
-        
-        <section>
+
+        <section class="mb-5">
             <h2>Режим работы</h2>
             <p>Пн-Пт: круглосуточно</p>
             <p>Сб-Вс: выходной</p>
         </section>
+
+        <!-- Responsive изображение -->
+        <img 
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80"
+            srcset="
+                https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80 640w,
+                https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=960&q=80 960w,
+                https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80 1280w
+            "
+            sizes="(max-width: 700px) 92vw, (max-width: 1200px) 640px, 960px"
+            alt="Наш офис"
+            class="responsive-image"
+            loading="lazy"
+            width="640"
+            height="360">
+
+        <!-- Видео с YouTube -->
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/9YffrCViTVk" 
+                title="Видео-тур по нашему офису"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
     </main>
-    
-    <footer>
+
+    <footer class="site-footer text-center">
         <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
         <p>Телефон: +7 (123) 456-78-90</p>
     </footer>
+
+    <script src="./script.js" defer></script>
 </body>
 </html>

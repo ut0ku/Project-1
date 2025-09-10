@@ -1,32 +1,88 @@
- <!DOCTYPE html> 
-<html lang="ru"> 
-<head> 
-    ... <!-- Скопируйте весь блок <head> из index.html --> 
-    <title>О нас - Название вашего сайта</title> 
-    <meta name="description" content="Узнайте больше о нашей компании и истории"> 
-</head> 
-<body> 
-    <header> 
-        ... <!-- Скопируйте весь блок <header> из index.html --> 
-    </header> 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - Название вашего сайта</title>
+    <meta name="description" content="Узнайте больше о нашей компании и истории">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <a href="/" class="site-header__brand">Test site</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item">
+                    <a href="index.html" class="site-nav__link">Главная</a>
+                </li>
+                <li class="site-nav__item">
+                    <a href="about.html" class="site-nav__link site-nav__link--active">О нас</a>
+                </li>
+                <li class="site-nav__item">
+                    <a href="contacts.html" class="site-nav__link">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-        <!-- Простые "хлебные крошки" --> 
-        <nav aria-label="Хлебные крошки"> 
-            <a href="index.html">Главная</a> → 
-            <span>О нас</span> 
-        </nav> 
-        <h1>О нашей компании</h1> 
-        <section> 
-            <h2>Наша история</h2> 
-            <p>Текст о том, как все начиналось...</p> 
-        </section> 
-        <section> 
-            <h2>Наша команда</h2> 
-            <p>Текст о команде...</p> 
-        </section> 
-    </main> 
-    <footer> 
-        ... <!-- Скопируйте весь блок <footer> из index.html --> 
-    </footer> 
-</body> 
-</html> 
+        <!-- Хлебные крошки -->
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                    <a href="index.html" class="breadcrumbs__link">Главная</a>
+                </li>
+                <li class="breadcrumbs__item">
+                    <span class="breadcrumbs__current">О нас</span>
+                </li>
+            </ul>
+        </nav>
+
+        <h1>О нашей компании</h1>
+
+        <!-- Responsive изображения -->
+        <img 
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80"
+            srcset="
+                https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80 640w,
+                https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=960&q=80 960w,
+                https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80 1280w
+            "
+            sizes="(max-width: 700px) 92vw, (max-width: 1200px) 640px, 960px"
+            alt="Наша команда за работой"
+            class="responsive-image"
+            loading="lazy"
+            width="640"
+            height="360">
+
+        <section class="mb-5">
+            <h2>Наша история</h2>
+            <p>Текст о том, как все начиналось...</p>
+        </section>
+
+        <section class="mb-5">
+            <h2>Наша команда</h2>
+            <p>Текст о команде...</p>
+        </section>
+
+        <!-- YT видео -->
+        <div class="video-container">
+            <iframe 
+                src="https://youtu.be/Xjq0kljBZnY?si=PYo8E29JB0giwqpL" 
+                title="Видео о нашей компании - Корпоративная культура"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+    </main>
+
+    <footer class="site-footer text-center">
+        <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
+        <p>Телефон: +7 (123) 456-78-90</p>
+    </footer>
+
+    <script src="./script.js" defer></script>
+</body>
+</html>
