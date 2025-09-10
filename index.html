@@ -1,11 +1,12 @@
- <!DOCTYPE html> 
+<!DOCTYPE html> 
 <html lang="ru"> 
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Главная - Название вашего сайта</title> 
     <meta name="description" content="Краткое описание главной страницы вашего сайта"> 
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon"> 
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css"> 
 </head> 
 <body> 
     <!-- Шапка сайта --> 
@@ -23,6 +24,9 @@
     <!-- Уникальное основное содержимое страницы --> 
     <main>
         <h1>Добро пожаловать на наш сайт!</h1> 
+        <!-- Кнопка открытия модалки -->
+        <button id="openDialog" type="button">Написать нам</button>
+        
         <!-- Секция 1 с якорем --> 
         <section id="services"> 
             <h2>Наши услуги</h2> 
@@ -37,14 +41,78 @@
         <!-- Секция 3 с якорем --> 
         <section id="contacts"> 
             <h2>Контактная информация</h2> 
-            <p>Наши контакты...</p> 
-    </main> 
+            <p>Наши контакты...</p>
             <a href="contacts.html">Подробнее</a> <!-- Ссылка на отдельную страницу --> 
         </section> 
+
+        <!-- Модальное окно с формой обратной связи -->
+        <dialog id="contactDialog" aria-labelledby="dialogTitle">
+            <h2 id="dialogTitle">Обратная связь</h2>
+            
+            <form id="contactForm" method="dialog" novalidate>
+                <div class="form-group">
+                    <label for="name">Имя *</label>
+                    <input id="name" name="name" type="text" required minlength="2" 
+                           autocomplete="given-name" aria-describedby="nameHelp">
+                    <small id="nameHelp">Минимум 2 символа</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail *</label>
+                    <input id="email" name="email" type="email" required 
+                           autocomplete="email" aria-describedby="emailHelp">
+                    <small id="emailHelp">Например: name@example.com</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <input id="phone" name="phone" type="tel" inputmode="tel" 
+                           autocomplete="tel" aria-describedby="phoneHelp" 
+                           placeholder="+7 (___) ___-__-__" required 
+                           pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+                    <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">Дата обращения</label>
+                    <input id="date" name="date" type="date" aria-describedby="dateHelp">
+                    <small id="dateHelp">Выберите дату вашего обращения</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="topic">Выберите курс *</label>
+                    <select id="topic" name="topic" required aria-describedby="topicHelp">
+                        <option value="">Выберите ваш курс</option>
+                        <option value="1course">1-й курс</option>
+                        <option value="2course">2-й курс</option>
+                        <option value="3course">3-й курс</option>
+                        <option value="4course">4-й курс</option>
+                        <option value="other">Другое</option>
+                    </select>
+                    <small id="topicHelp">Выберите наиболее подходящую тему</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Сообщение *</label>
+                    <textarea id="message" name="message" rows="4" required 
+                              aria-describedby="messageHelp" placeholder="Опишите ваш вопрос подробно..."></textarea>
+                    <small id="messageHelp">Минимум 10 символов</small>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" id="closeDialog">Закрыть</button>
+                    <button type="submit">Отправить</button>
+                </div>
+            </form>
+        </dialog>
+    </main> 
+    
     <!-- Подвал сайта --> 
     <footer> 
         <p>&copy; 2023 Название вашего сайта. Все права защищены.</p> 
         <p>Телефон: +7 (123) 456-78-90</p> 
     </footer> 
+
+    <script src="main.js" defer></script>
 </body> 
 </html>
