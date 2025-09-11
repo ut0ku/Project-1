@@ -5,6 +5,8 @@ const closeBtn = document.getElementById('closeDialog');
 const form = document.getElementById('contactForm');
 const phoneInput = document.getElementById('phone');
 const modalClose = document.querySelector('.modal__close');
+const themeToggle = document.querySelector('.theme-toggle');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 let lastActive = null;
 
 // Установка активного пункта меню
@@ -18,6 +20,40 @@ function setActiveNavItem() {
             link.classList.add('site-nav__link--active');
         }
     });
+}
+
+// Применение темы
+function applyTheme(theme) {
+    if (theme === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.documentElement.classList.remove('theme-dark');
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+// переключение темы
+function toggleTheme() {
+    const currentTheme = localStorage.getItem('theme') || 
+                        (prefersDarkScheme.matches ? 'dark' : 'light');
+    
+    if (currentTheme === 'dark') {
+        applyTheme('light');
+    } else {
+        applyTheme('dark');
+    }
+}
+
+// Инициализация темы
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else if (prefersDarkScheme.matches) {
+        applyTheme('dark');
+    }
 }
 
 // Телефонная маска
@@ -144,8 +180,12 @@ dlg?.addEventListener('click', (e) => {
     }
 });
 
+// Обработчик переключения темы
+themeToggle?.addEventListener('click', toggleTheme);
+
 document.addEventListener('DOMContentLoaded', () => {
     setActiveNavItem();
+    initTheme(); // Инициализируем тему
     
     // Плавная прокрутка к якорям
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
