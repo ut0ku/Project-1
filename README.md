@@ -4,8 +4,5 @@
 Future web site
 
 ## Links
-<<<<<<< HEAD
+HEAD
 [GITHUB](https://ut0ku.github.io/Project-1/)
-=======
-[GITHUB](https://ut0ku.github.io/Project-1/)
->>>>>>> main
