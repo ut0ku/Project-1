@@ -1,15 +1,187 @@
-<!DOCTYPE html> 
-<html lang="ru"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <!-- Важная мета-информация для корректного отображения на мобильных устройствах --> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Мой первый проект</title> 
-    <!-- Подключение фавиконки --> 
-    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon"> 
-</head> 
-<body> 
-    <h1>Заглушка</h1> 
-    <p>Скоро здесь будет крутой сайт!</p> 
-</body> 
-</html> 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - Test site</title>
+    <meta name="description" content="Краткое описание главной страницы вашего сайта">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./styles.css">
+
+    <!-- Open Graph микроразметка -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Главная - Test site">
+    <meta property="og:description" content="Краткое описание главной страницы вашего сайта">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://ut0ku.github.io/Project-1/index.html">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="site-header">
+        <a href="/" class="site-header__brand">Test site</a>
+        <!-- Главное меню навигации -->
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item">
+                    <a href="index.html" class="site-nav__link site-nav__link--active">Главная</a>
+                </li>
+                <li class="site-nav__item">
+                    <a href="about.html" class="site-nav__link">О нас</a>
+                </li>
+                <li class="site-nav__item">
+                    <a href="contacts.html" class="site-nav__link">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="site-header__controls">
+            <button class="theme-toggle" aria-label="Переключить тему">
+                <svg class="theme-toggle__icon--moon" aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                </svg>
+                <svg class="theme-toggle__icon--sun" aria-hidden="true" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+
+    <!-- Уникальное основное содержимое страницы -->
+    <main>
+        <!-- Hero section с градиент-оверлеем -->
+        <section class="hero">
+            <h1 class="hero__title">Добро пожаловать на наш сайт!</h1>
+            <p class="hero__subtitle">Мы предлагаем лучшие услуги для наших клиентов</p>
+        </section>
+
+        <button id="openDialog" type="button" class="btn btn--primary">Написать нам</button>
+
+        <!-- Responsive изображение -->
+        <img 
+            src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80"
+            srcset="
+                https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80 640w,
+                https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=960&q=80 960w,
+                https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80 1280w
+            "
+            sizes="(max-width: 700px) 92vw, (max-width: 1200px) 640px, 960px"
+            alt="Пример нашего проекта"
+            class="responsive-image"
+            loading="lazy"
+            width="640"
+            height="360">
+
+        <!-- YT видео -->
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                title="Пример видео с YouTube - Наша компания"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+
+        <!-- Секция 1 с якорем -->
+        <section id="services" class="mb-5">
+            <h2>Наши услуги</h2>
+            <p>Описание предоставляемых услуг...</p>
+            <a href="#contacts" class="btn btn--primary">Связаться с нами</a>
+        </section>
+
+        <!-- Секция 2 с якорем -->
+        <section id="portfolio" class="mb-5">
+            <h2>Портфолио</h2>
+            <p>Примеры наших работ...</p>
+        </section>
+
+        <!-- Секция 3 с якорем -->
+        <section id="contacts" class="mb-5">
+            <h2>Контактная информация</h2>
+            <p>Наши контакты...</p>
+            <a href="contacts.html" class="btn btn--primary">Подробнее</a>
+        </section>
+
+        <!-- Модальное окно с формой обратной связи -->
+        <dialog id="contactDialog" class="modal" aria-labelledby="dialogTitle">
+            <div class="modal__header">
+                <h2 id="dialogTitle" class="modal__title">Обратная связь</h2>
+                <button class="modal__close" aria-label="Закрыть">×</button>
+            </div>
+            
+            <form id="contactForm" class="form" method="dialog" novalidate>
+                <div class="form-group">
+                    <label for="name" class="form__label">Имя *</label>
+                    <input id="name" name="name" type="text" class="form__input" required minlength="2" 
+                           autocomplete="given-name" aria-describedby="nameHelp">
+                    <small id="nameHelp" class="form__help">Минимум 2 символа</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form__label">E-mail *</label>
+                    <input id="email" name="email" type="email" class="form__input" required 
+                           autocomplete="email" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form__help">Например: name@example.com</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="form__label">Телефон *</label>
+                    <input id="phone" name="phone" type="tel" class="form__input" inputmode="tel" 
+                           autocomplete="tel" aria-describedby="phoneHelp" 
+                           placeholder="+7 (___) ___-__-__" required 
+                           pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+                    <small id="phoneHelp" class="form__help">Формат: +7 (900) 000-00-00</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date" class="form__label">Дата обращения</label>
+                    <input id="date" name="date" type="date" class="form__input" aria-describedby="dateHelp">
+                    <small id="dateHelp" class="form__help">Выберите дату вашего обращения</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="topic" class="form__label">Выберите курс *</label>
+                    <select id="topic" name="topic" class="form__select" required aria-describedby="topicHelp">
+                        <option value="">Выберите ваш курс</option>
+                        <option value="1course">1-й курс</option>
+                        <option value="2course">2-й курс</option>
+                        <option value="3course">3-й курс</option>
+                        <option value="4course">4-й курс</option>
+                        <option value="other">Другое</option>
+                    </select>
+                    <small id="topicHelp" class="form__help">Выберите наиболее подходящую тему</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message" class="form__label">Сообщение *</label>
+                    <textarea id="message" name="message" rows="4" class="form__textarea" required 
+                              aria-describedby="messageHelp" placeholder="Опишите ваш вопрос подробно..."></textarea>
+                    <small id="messageHelp" class="form__help">Минимум 10 символов</small>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" id="closeDialog" class="btn btn--secondary">Закрыть</button>
+                    <button type="submit" class="btn btn--primary">Отправить</button>
+                </div>
+            </form>
+        </dialog>
+    </main>
+    
+    <!-- Подвал сайта -->
+    <footer class="site-footer text-center">
+        <p>&copy; 2023 Test site. Все права защищены.</p>
+        <p>Телефон: +7 (123) 456-78-90</p>
+    </footer>
+
+    <script src="./script.js" defer></script>
+</body>
+</html>

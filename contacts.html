@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Test site</title>
+    <meta name="description" content="Контактная информация нашей компании">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./styles.css">
+
+    <!-- Open Graph микроразметка -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Контакты - Test site">
+    <meta property="og:description" content="Контактная информация нашей компании">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://ut0ku.github.io/Project-1/contacts.html">
+</head>
+<body>
+    <header class="site-header">
+        <a href="/" class="site-header__brand">Test site</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item">
+                    <a href="index.html" class="site-nav__link">Главная</a>
+                </li>
+                <li class="site-nav__item">
+                    <a href="about.html" class="site-nav__link">О нас</a>
+                </li>
+                <li class="site-nav__item">
+                    <a href="contacts.html" class="site-nav__link site-nav__link--active">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="site-header__controls">
+            <button class="theme-toggle" aria-label="Переключить тему">
+                <svg class="theme-toggle__icon--moon" aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                </svg>
+                <svg class="theme-toggle__icon--sun" aria-hidden="true" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Хлебные крошки -->
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                    <a href="index.html" class="breadcrumbs__link">Главная</a>
+                </li>
+                <li class="breadcrumbs__item">
+                    <span class="breadcrumbs__current">Контакты</span>
+                </li>
+            </ul>
+        </nav>
+
+        <h1>Наши контакты</h1>
+
+        <section class="hero mb-5">
+            <h2 class="hero__title">Свяжитесь с нами</h2>
+            <p class="hero__subtitle">Мы всегда рады помочь вам</p>
+        </section>
+
+        <section class="mb-5">
+            <h2>Контактная информация</h2>
+            <p>Адрес: г. Москва, ул. Пушкина, д. 1</p>
+            <p>Телефон: +7 (123) 456-78-90</p>
+            <p>Email: info@example.com</p>
+        </section>
+
+        <section class="mb-5">
+            <h2>Режим работы</h2>
+            <p>Пн-Пт: круглосуточно</p>
+            <p>Сб-Вс: выходной</p>
+        </section>
+
+        <!-- Responsive изображения -->
+        <img 
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80"
+            srcset="
+                https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80 640w,
+                https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=960&q=80 960w,
+                https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80 1280w
+            "
+            sizes="(max-width: 700px) 92vw, (max-width: 1200px) 640px, 960px"
+            alt="Наш офис"
+            class="responsive-image"
+            loading="lazy"
+            width="640"
+            height="360">
+
+        <!-- YT видео -->
+        <div class="video-container">
+            <iframe 
+                src="https://youtube.com/embed/aN9DH_GxqEo" 
+                title="Видео-тур по нашему офису"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+    </main>
+
+    <footer class="site-footer text-center">
+        <p>&copy; 2023 Test site. Все права защищены.</p>
+        <p>Телефон: +7 (123) 456-78-90</p>
+    </footer>
+
+    <script src="./script.js" defer></script>
+</body>
+</html>
